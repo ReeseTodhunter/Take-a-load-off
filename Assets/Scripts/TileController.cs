@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class TileController : MonoBehaviour
 {
+    public GameManager gameManager;
+
     private const float BASE_SPEED = 100.0f;
     private const float LOWEST_SPEED = 50.0f;
-
-    public CargoDetector cargoDetector;
     
     private GameObject tile;
     private float speedModifier;
@@ -19,9 +19,9 @@ public class TileController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (cargoDetector != null)
+        if (gameManager != null)
         {
-            MoveTile(cargoDetector.totalCargoWeight);
+            MoveTile(gameManager.cargoWeight);
         }
     }
 

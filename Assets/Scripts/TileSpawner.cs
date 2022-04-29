@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class TileSpawner : MonoBehaviour
 {
-    public GameObject[] tile;
-    public CargoDetector cargoDetector;
+    public GameManager gameManager;
 
-    private bool hasSpawned;
-    private float spawnDistance;
+    private bool hasSpawnedTile;
+    private float spawnOffset;
     private bool killTimerStarted;
     private float killTimer;
 
     void Start()
     {
-        hasSpawned = false;
-        spawnDistance = 90.0f;
+        hasSpawnedTile = false;
+        spawnOffset = 90.0f;
         killTimerStarted = false;
         killTimer = 1.0f;
     }
@@ -24,10 +23,9 @@ public class TileSpawner : MonoBehaviour
     {
         if (other.gameObject.name == "Truck")
         {
-            Debug.Log("A Truck!");
-            if (!hasSpawned && tile != null)
+            if (!hasSpawnedTile && gameManager.tiles != null)
             {
-                SpawnTile(new Vector3(this.transform.position.x, 0.0f, this.transform.position.z + spawnDistance), tile[Random.Range(0, tile.Length - 1)]);
+                SpawnTile(new Vector3(this.transform.position.x, 0.0f, this.transform.position.z + spawnOffset), gameManager.tiles[Random.Range(0, gameManager.tiles.Length - 1)]); //Spawns a new Tile from the tile list and positions it ahead
             }
         }
     }
@@ -37,7 +35,7 @@ public class TileSpawner : MonoBehaviour
         killTimerStarted = true;
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (killTimerStarted)
         {
@@ -53,10 +51,7 @@ public class TileSpawner : MonoBehaviour
     {
         GameObject newTile = Instantiate(tile, location, Quaternion.identity);
         newTile.AddComponent<TileController>();
-        if (cargoDetector != null)
-        {
-            newTile.GetComponent<TileController>().cargoDetector = cargoDetector;
-        }
+        newTile.GetComponent<TileController>().gameManager = gameManager;
     }
 
     void OnDrawGizmos()
