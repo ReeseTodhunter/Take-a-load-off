@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public GameObject checkpoint;
     public GameObject[] tiles;
     public GameObject[] crates;
+    public GameObject player;
+    public GameObject gameOverScreen;
 
     public GameState gameState;
     public Vector3 playerPos;
@@ -41,8 +43,8 @@ public class GameManager : MonoBehaviour
     {
         gameState = GameState.MainMenu;
         playerPos = new Vector3(-6.5f, 3.0f, 0.0f);
-        startingCargoAmount = 40;
-        tilesBetweenCheckpoints = 30;
+        startingCargoAmount = 10;
+        tilesBetweenCheckpoints = 60;
         cargoWeight = 0.0f;
         numOfCargo = 0;
         score = 0;
@@ -51,6 +53,15 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        switch(gameState)
+        {
+            case GameState.Playing:
+                UpdateScore();
+                break;
+            case GameState.GameOver:
+                GameOver();
+                break;
+        }
         if (gameState == GameState.GameOver)
         {
             GameOver();
@@ -92,8 +103,18 @@ public class GameManager : MonoBehaviour
         GameObject newTruck = Instantiate(truck, playerPos, Quaternion.Euler(0.0f, 90.0f, 0.0f));
         newTruck.transform.Find("CargoSpawner").gameObject.GetComponent<CargoSpawner>().gameManager = GM;
         newTruck.transform.Find("CargoDetector").gameObject.GetComponent<CargoDetector>().gameManager = GM;
+
+        GameObject newPlayer = Instantiate(player, playerPos, Quaternion.identity);
+        newPlayer.transform.Find("AnimationModel").gameObject.transform.position = new Vector3(0.0f, -100.0f, 0.0f);
+        newPlayer.transform.Find("Character").gameObject.transform.position = new Vector3(playerPos.x, playerPos.y + 5.0f, playerPos.z - 10.0f);
+
         GameObject newEnemy = Instantiate(enemy, new Vector3(-playerPos.x, playerPos.y, playerPos.z - 150.0f), Quaternion.Euler(0.0f, 90.0f, 0.0f));
         newEnemy.GetComponent<Enemy>().gameManager = GM;
+    }
+
+    private void UpdateScore()
+    {
+        score += 1;
     }
 
     private void GameOver()
