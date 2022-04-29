@@ -8,64 +8,99 @@ public class Grab : MonoBehaviour
     GameObject grabbedObj;
     public Rigidbody rb;
     public int isLeftorRight;
+    bool toGrab = false;
     public bool alreadyGrabbing = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();    
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(isLeftorRight))
+        if (Input.GetKeyDown(KeyCode.J))
         {
-            if(isLeftorRight == 0)
+            animator.SetBool("isLeftHandUp", true);
+            if (!alreadyGrabbing)
             {
-                animator.SetBool("isLeftHandUp", true);
+                toGrab = true;
+                //alreadyGrabbing = true;
             }
-            else if (isLeftorRight == 1)
-            {
-                animator.SetBool("isRightHandUp", true);
-            }
-
-            FixedJoint fj = grabbedObj.AddComponent<FixedJoint>();
-            fj.connectedBody = rb;
-            fj.breakForce = 9001;
         }
-        else if(Input.GetMouseButtonUp(isLeftorRight))
+        if (Input.GetKeyDown(KeyCode.K))
         {
-            if(isLeftorRight == 0)
+            animator.SetBool("isRightHandUp", true);
+            if (!alreadyGrabbing)
             {
-                animator.SetBool("isLeftHandUp", false);
+                toGrab = true;
+                //alreadyGrabbing = true;
             }
-            else if (isLeftorRight == 1)
-            {
-                animator.SetBool("isRightHandUp", false);
-            }
+        }
+        
 
-            if(grabbedObj != null)
+
+
+        if (Input.GetKeyUp(KeyCode.J))
+        {
+            if (alreadyGrabbing)
             {
                 Destroy(grabbedObj.GetComponent<FixedJoint>());
             }
+            animator.SetBool("isLeftHandUp", false);
+            toGrab = false;
+            
+            
 
-            grabbedObj = null;
+        }
+        if (Input.GetKeyUp(KeyCode.K))
+        {
+            if (alreadyGrabbing)
+            {
+                Destroy(grabbedObj.GetComponent<FixedJoint>());
+            }
+            animator.SetBool("isRightHandUp", false);
+            toGrab = false;
         }
 
+
+
+        if(grabbedObj != null && toGrab == false && alreadyGrabbing == false)
+        {
+            Destroy(grabbedObj.GetComponent<FixedJoint>());
+        }
+
+        grabbedObj = null;
+        Debug.Log(grabbedObj);
     }
+
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<Cargo>() as Cargo != null)
         {
             grabbedObj = other.gameObject;
+            Debug.Log("Obj Detected");
+            if (toGrab && !alreadyGrabbing)
+            {
+                FixedJoint fj = grabbedObj.AddComponent<FixedJoint>();
+                fj.connectedBody = rb;
+                fj.breakForce = 9001;
+                alreadyGrabbing = true;
+                toGrab = false;
+            }
         }
+
     }
 
     private void OnTriggerExit(Collider other)
     {
 
         grabbedObj = null;
+        alreadyGrabbing = false;
+        Destroy(grabbedObj.GetComponent<FixedJoint>());
 
     }
 }
+
