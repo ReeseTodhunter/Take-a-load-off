@@ -11,8 +11,8 @@ public class CargoSpawner : MonoBehaviour
     [Space]
     [Range(5, 200)]
     public int numToSpawn;
-    [Range(1,100)]
-    public float weightToSpawn = 1.0f;
+    [Range(0.5f, 1.0f)]
+    public float weightToSpawn = 0.5f;
 
     void Start()
     {
