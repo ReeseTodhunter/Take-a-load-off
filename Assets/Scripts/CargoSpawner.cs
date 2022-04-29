@@ -7,16 +7,21 @@ public class CargoSpawner : MonoBehaviour
     private const float WIDTH = 5.0f, LENGTH = 7.5f, HEIGHT = 7.0f;
     private const float GAP_BETWEEN_CARGO = 1.25f;
 
-    public GameObject smallCrate;
+    public GameManager gameManager;
     [Space]
     [Range(5, 200)]
     public int numToSpawn;
-    [Range(1,100)]
-    public float weightToSpawn = 1.0f;
+    [Range(0.5f, 1.0f)]
+    public float weightToSpawn = 0.5f;
+
+    //void Awake()
+    //{
+    //    gameManager = FindObjectOfType(typeof(GameManager)) as GameManager;
+    //}
 
     void Start()
     {
-        SpawnCargo(numToSpawn);
+        SpawnCargo(gameManager.startingCargoAmount);
     }
 
     public void SpawnCargo(int numToSpawn = 40)
@@ -42,7 +47,7 @@ public class CargoSpawner : MonoBehaviour
                         return;
                     }
 
-                    GameObject cargo = Instantiate(smallCrate, new Vector3(this.transform.position.x + (j * GAP_BETWEEN_CARGO), this.transform.position.y + (h * GAP_BETWEEN_CARGO), this.transform.position.z + (i * GAP_BETWEEN_CARGO)), Quaternion.identity);
+                    GameObject cargo = Instantiate(gameManager.crates[0], new Vector3(this.transform.position.x + (j * GAP_BETWEEN_CARGO), this.transform.position.y + (h * GAP_BETWEEN_CARGO), this.transform.position.z + (i * GAP_BETWEEN_CARGO)), Quaternion.identity);
                     cargo.AddComponent<Cargo>();
                     cargo.GetComponent<Cargo>().weight = weightToSpawn;
                     numToSpawn--;
