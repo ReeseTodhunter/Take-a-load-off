@@ -5,6 +5,7 @@ using UnityEngine;
 public class TileSpawner : MonoBehaviour
 {
     public GameManager gameManager;
+    public CargoSpawner cargoSpawner;
 
     private bool hasSpawnedTile;
     private float spawnOffset;
@@ -23,9 +24,16 @@ public class TileSpawner : MonoBehaviour
     {
         if (other.gameObject.name == "Cab")
         {
-            if (!hasSpawnedTile && gameManager.tiles[Random.Range(0, gameManager.tiles.Length - 1)] != null)
+            if (!hasSpawnedTile && gameManager.tiles[Random.Range(0, gameManager.tiles.Length - 1)] != null && gameManager.tilesBetweenCheckpoints > 0)
             {
+                gameManager.tilesBetweenCheckpoints -= 1;
                 SpawnTile(new Vector3(this.transform.position.x, 0.0f, this.transform.position.z + spawnOffset), gameManager.tiles[Random.Range(0, gameManager.tiles.Length - 1)]); //Spawns a new Tile from the tile list and positions it ahead
+            }
+            else if(!hasSpawnedTile && gameManager.checkpoint != null && gameManager.tilesBetweenCheckpoints <= 0)
+            {
+                gameManager.tilesBetweenCheckpoints = 10;
+                cargoSpawner = other.gameObject.transform.parent.gameObject.transform.Find("CargoSpawner").gameObject.GetComponent<CargoSpawner>();
+                SpawnTile(new Vector3(this.transform.position.x, 0.0f, this.transform.position.z + spawnOffset), gameManager.checkpoint);
             }
         }
     }
@@ -53,6 +61,11 @@ public class TileSpawner : MonoBehaviour
         newTile.AddComponent<TileController>();
         newTile.GetComponent<TileController>().gameManager = gameManager;
         newTile.transform.Find("SpawnTrigger").gameObject.GetComponent<TileSpawner>().gameManager = gameManager;
+        if (tile == gameManager.checkpoint)
+        {
+            newTile.transform.Find("CheckPoint").gameObject.GetComponent<CheckPoint>().gameManager = gameManager;
+            newTile.transform.Find("CheckPoint").gameObject.GetComponent<CheckPoint>().cargoSpawner = cargoSpawner;
+        }
     }
 
     void OnDrawGizmos()

@@ -21,7 +21,7 @@ public class CargoSpawner : MonoBehaviour
 
     void Start()
     {
-        SpawnCargo(numToSpawn);
+        SpawnCargo(gameManager.startingCargoAmount);
     }
 
     public void SpawnCargo(int numToSpawn = 40)

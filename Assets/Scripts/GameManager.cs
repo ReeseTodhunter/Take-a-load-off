@@ -8,12 +8,15 @@ public class GameManager : MonoBehaviour
     public static GameManager GM;
     public TileSpawner tileSpawner;
     public GameObject truck;
+    public GameObject checkpoint;
     public GameObject[] tiles;
     public GameObject[] crates;
 
     public GameState gameState;
     public float cargoWeight;
     public int numOfCargo;
+    public int startingCargoAmount;
+    public int tilesBetweenCheckpoints;
     public int score;
     public int highScore;
 
@@ -33,6 +36,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         gameState = GameState.MainMenu;
+        startingCargoAmount = 40;
+        tilesBetweenCheckpoints = 10;
         cargoWeight = 0.0f;
         numOfCargo = 0;
         score = 0;

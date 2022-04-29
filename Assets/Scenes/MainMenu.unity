@@ -245,6 +245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileSpawner: {fileID: 158696971}
   truck: {fileID: 7558446453042535638, guid: aed38a7a488391f4b8cab82f0798261e, type: 3}
+  checkpoint: {fileID: 3525101245108850287, guid: 3fa61bd0b688715448dffdc9a6b7c1ad, type: 3}
   tiles:
   - {fileID: 3525101245108850287, guid: d94180c689bfd2e498ba4226a25cc897, type: 3}
   - {fileID: 3525101245108850287, guid: 386e9899362bd744599301b836a37fa2, type: 3}
@@ -257,6 +258,8 @@ MonoBehaviour:
   gameState: 0
   cargoWeight: 0
   numOfCargo: 0
+  startingCargoAmount: 0
+  tilesBetweenCheckpoints: 0
   score: 0
   highScore: 0
 --- !u!4 &158696973
