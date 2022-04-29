@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
+  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 0.47058824}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 705507994}
+  m_Sun: {fileID: 0}
   m_IndirectSpecularColor: {r: 0.44657964, g: 0.4964152, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 306a6e5ede221934597c8b9e662716d3, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -247,6 +247,11 @@ MonoBehaviour:
   truck: {fileID: 7558446453042535638, guid: aed38a7a488391f4b8cab82f0798261e, type: 3}
   tiles:
   - {fileID: 3525101245108850287, guid: d94180c689bfd2e498ba4226a25cc897, type: 3}
+  - {fileID: 3525101245108850287, guid: 386e9899362bd744599301b836a37fa2, type: 3}
+  - {fileID: 3525101245108850287, guid: 1fd9e7b30095fba48bfd38cb93b79ba3, type: 3}
+  - {fileID: 3525101245108850287, guid: 4cd105cf74c435d47a120b74209c8664, type: 3}
+  - {fileID: 3525101245108850287, guid: 013bbc93384b0fa43b1a1efd39c1c47c, type: 3}
+  - {fileID: 3525101245108850287, guid: 013bbc93384b0fa43b1a1efd39c1c47c, type: 3}
   crates:
   - {fileID: 1536593931784505949, guid: 962a2ad6a94de724ba772180c24d558b, type: 3}
   gameState: 0

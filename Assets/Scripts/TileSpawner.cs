@@ -21,9 +21,9 @@ public class TileSpawner : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "Truck")
+        if (other.gameObject.name == "Cab")
         {
-            if (!hasSpawnedTile && gameManager.tiles != null)
+            if (!hasSpawnedTile && gameManager.tiles[Random.Range(0, gameManager.tiles.Length - 1)] != null)
             {
                 SpawnTile(new Vector3(this.transform.position.x, 0.0f, this.transform.position.z + spawnOffset), gameManager.tiles[Random.Range(0, gameManager.tiles.Length - 1)]); //Spawns a new Tile from the tile list and positions it ahead
             }
@@ -52,6 +52,7 @@ public class TileSpawner : MonoBehaviour
         GameObject newTile = Instantiate(tile, location, Quaternion.identity);
         newTile.AddComponent<TileController>();
         newTile.GetComponent<TileController>().gameManager = gameManager;
+        newTile.transform.Find("SpawnTrigger").gameObject.GetComponent<TileSpawner>().gameManager = gameManager;
     }
 
     void OnDrawGizmos()

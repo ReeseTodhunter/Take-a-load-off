@@ -43,7 +43,10 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("SinglePlayer");
         gameState = GameState.Playing;
-        SetupGame();
+        if (SceneManager.GetActiveScene().name != "SinglePlayer")
+        {
+            StartCoroutine("waitForSceneLoad", "SinglePlayer");
+        }
     }
 
     public void ReturnToMenu()
@@ -58,6 +61,31 @@ public class GameManager : MonoBehaviour
 
     private void SetupGame()
     {
+        float setupOffset = -30.0f;
+
+        for (int i = 0; i < 5; i++)
+        {
+            GameObject tile = Instantiate(tiles[0], new Vector3(0.0f, 0.0f, setupOffset), Quaternion.identity);
+            tile.GetComponent<TileController>().gameManager = GM;
+            tile.transform.Find("SpawnTrigger").gameObject.GetComponent<TileSpawner>().gameManager = GM;
+            setupOffset += 30.0f;
+        }
+
+        GameObject newTruck = Instantiate(truck, new Vector3(-6.5f, 3.0f, 0.0f), Quaternion.Euler(0.0f, 90.0f, 0.0f));
+        newTruck.transform.Find("CargoSpawner").gameObject.GetComponent<CargoSpawner>().gameManager = GM;
+        newTruck.transform.Find("CargoDetector").gameObject.GetComponent<CargoDetector>().gameManager = GM;
+    }
+
+    IEnumerator waitForSceneLoad(string sceneName)
+    {
+        while (SceneManager.GetActiveScene().name != sceneName)
+        {
+            yield return null;
+        }
+        if (SceneManager.GetActiveScene().name == sceneName)
+        {
+            SetupGame();
+        }
     }
 }
 

@@ -9,6 +9,11 @@ public class CargoDetector : MonoBehaviour
     public float totalCargoWeight; //Stores the weight of all cargo on the truck
     int numOfCargo; //Stores number of boxes in the truck
 
+    //void Awake()
+    //{
+    //    gameManager = FindObjectOfType(typeof(GameManager)) as GameManager;
+    //}
+
     void Start()
     {
         totalCargoWeight = 0.0f;

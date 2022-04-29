@@ -14,6 +14,11 @@ public class CargoSpawner : MonoBehaviour
     [Range(0.5f, 1.0f)]
     public float weightToSpawn = 0.5f;
 
+    //void Awake()
+    //{
+    //    gameManager = FindObjectOfType(typeof(GameManager)) as GameManager;
+    //}
+
     void Start()
     {
         SpawnCargo(numToSpawn);
