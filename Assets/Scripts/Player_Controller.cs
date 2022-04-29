@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player_Controller : MonoBehaviour
 {
+    private int JumpTimer = 120;
     public float speed = 200;
     public float strafespeed = 150;
     public float jumpForce = 6000;
@@ -11,7 +12,7 @@ public class Player_Controller : MonoBehaviour
     public Rigidbody Pelvis;
     public bool isGrounded;
 
-    public float turnSmoothTime = 0.1f;
+    public float turnSmoothTime = 2f;
     float turnSmoothVelocity;
 
     // Start is called before the first frame update
@@ -44,11 +45,16 @@ public class Player_Controller : MonoBehaviour
 
         if(Input.GetAxis("Jump")>0)
         {
-            if (isGrounded)
+            if (isGrounded && JumpTimer > 120)
             {
                 Pelvis.AddForce(new Vector3(0, jumpForce, 0));
                 isGrounded = false;
+                JumpTimer = 0;
             }
+        }
+        if(isGrounded && JumpTimer <= 120)
+        {
+            JumpTimer += 1;
         }
     }
 }
