@@ -19,13 +19,13 @@ public class Enemy : MonoBehaviour
     {
         playerSpeed = gameManager.playerSpeed;
 
-        if (this.transform.position.z > gameManager.playerPos.z - 150.0f && this.transform.position.z < gameManager.playerPos.z + 150.0f)
+        if ((enemySpeed >= playerSpeed && this.transform.position.z < gameManager.playerPos.z + 150.0f) || (enemySpeed <= playerSpeed && this.transform.position.z > gameManager.playerPos.z - 150.0f))
         {
             currentSpeed = (enemySpeed - playerSpeed) * Time.deltaTime;
         }
         else
         {
-            currentSpeed = playerSpeed * Time.deltaTime;
+            currentSpeed = 0.0f;
         }
 
         this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z + currentSpeed);

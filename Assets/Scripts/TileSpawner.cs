@@ -40,7 +40,10 @@ public class TileSpawner : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        killTimerStarted = true;
+        if (other.gameObject.name == "Cab")
+        {
+            killTimerStarted = true;
+        }
     }
 
     void Update()

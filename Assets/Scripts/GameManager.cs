@@ -49,6 +49,14 @@ public class GameManager : MonoBehaviour
         highScore = 0;
     }
 
+    void Update()
+    {
+        if (gameState == GameState.GameOver)
+        {
+            GameOver();
+        }
+    }
+
     public void LoadGame()
     {
         SceneManager.LoadScene("SinglePlayer");
@@ -86,6 +94,11 @@ public class GameManager : MonoBehaviour
         newTruck.transform.Find("CargoDetector").gameObject.GetComponent<CargoDetector>().gameManager = GM;
         GameObject newEnemy = Instantiate(enemy, new Vector3(-playerPos.x, playerPos.y, playerPos.z - 150.0f), Quaternion.Euler(0.0f, 90.0f, 0.0f));
         newEnemy.GetComponent<Enemy>().gameManager = GM;
+    }
+
+    private void GameOver()
+    {
+
     }
 
     IEnumerator waitForSceneLoad(string sceneName)
