@@ -45,14 +45,14 @@ public class Player_Controller : MonoBehaviour
 
         if(Input.GetAxis("Jump")>0)
         {
-            if (isGrounded && JumpTimer > 120)
+            if (isGrounded && JumpTimer > 60)
             {
                 Pelvis.AddForce(new Vector3(0, jumpForce, 0));
                 isGrounded = false;
                 JumpTimer = 0;
             }
         }
-        if(isGrounded && JumpTimer <= 120)
+        if(isGrounded && JumpTimer <= 60)
         {
             JumpTimer += 1;
         }
