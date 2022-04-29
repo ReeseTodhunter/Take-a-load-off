@@ -14,6 +14,10 @@ public class CheckPoint : MonoBehaviour
             cargoSpawner.SpawnCargo(gameManager.startingCargoAmount + 1);
             gameManager.startingCargoAmount += 1;
         }
+        else if (other.gameObject.name == "Enemy")
+        {
+            gameManager.gameState = GameState.GameOver;
+        }
     }
 
     void OnDrawGizmos()

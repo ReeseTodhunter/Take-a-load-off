@@ -8,12 +8,16 @@ public class GameManager : MonoBehaviour
     public static GameManager GM;
     public TileSpawner tileSpawner;
     public GameObject truck;
+    public GameObject enemy;
     public GameObject checkpoint;
     public GameObject[] tiles;
     public GameObject[] crates;
 
     public GameState gameState;
+    public Vector3 playerPos;
     public float cargoWeight;
+    public float playerSpeed;
+    public float enemySpeed;
     public int numOfCargo;
     public int startingCargoAmount;
     public int tilesBetweenCheckpoints;
@@ -36,12 +40,21 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         gameState = GameState.MainMenu;
+        playerPos = new Vector3(-6.5f, 3.0f, 0.0f);
         startingCargoAmount = 40;
-        tilesBetweenCheckpoints = 10;
+        tilesBetweenCheckpoints = 30;
         cargoWeight = 0.0f;
         numOfCargo = 0;
         score = 0;
         highScore = 0;
+    }
+
+    void Update()
+    {
+        if (gameState == GameState.GameOver)
+        {
+            GameOver();
+        }
     }
 
     public void LoadGame()
@@ -76,9 +89,16 @@ public class GameManager : MonoBehaviour
             setupOffset += 30.0f;
         }
 
-        GameObject newTruck = Instantiate(truck, new Vector3(-6.5f, 3.0f, 0.0f), Quaternion.Euler(0.0f, 90.0f, 0.0f));
+        GameObject newTruck = Instantiate(truck, playerPos, Quaternion.Euler(0.0f, 90.0f, 0.0f));
         newTruck.transform.Find("CargoSpawner").gameObject.GetComponent<CargoSpawner>().gameManager = GM;
         newTruck.transform.Find("CargoDetector").gameObject.GetComponent<CargoDetector>().gameManager = GM;
+        GameObject newEnemy = Instantiate(enemy, new Vector3(-playerPos.x, playerPos.y, playerPos.z - 150.0f), Quaternion.Euler(0.0f, 90.0f, 0.0f));
+        newEnemy.GetComponent<Enemy>().gameManager = GM;
+    }
+
+    private void GameOver()
+    {
+
     }
 
     IEnumerator waitForSceneLoad(string sceneName)

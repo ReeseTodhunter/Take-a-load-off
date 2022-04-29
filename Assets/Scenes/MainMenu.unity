@@ -231,6 +231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 158696972}
+  cargoSpawner: {fileID: 0}
 --- !u!114 &158696972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,6 +246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileSpawner: {fileID: 158696971}
   truck: {fileID: 7558446453042535638, guid: aed38a7a488391f4b8cab82f0798261e, type: 3}
+  enemy: {fileID: 7558446453042535638, guid: 28d9d790e85a9af42a1b78892d451b34, type: 3}
   checkpoint: {fileID: 3525101245108850287, guid: 3fa61bd0b688715448dffdc9a6b7c1ad, type: 3}
   tiles:
   - {fileID: 3525101245108850287, guid: d94180c689bfd2e498ba4226a25cc897, type: 3}
@@ -256,7 +258,10 @@ MonoBehaviour:
   crates:
   - {fileID: 1536593931784505949, guid: 962a2ad6a94de724ba772180c24d558b, type: 3}
   gameState: 0
+  playerPos: {x: 0, y: 0, z: 0}
   cargoWeight: 0
+  playerSpeed: 0
+  enemySpeed: 0
   numOfCargo: 0
   startingCargoAmount: 0
   tilesBetweenCheckpoints: 0

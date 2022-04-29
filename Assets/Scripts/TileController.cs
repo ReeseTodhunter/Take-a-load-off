@@ -6,7 +6,7 @@ public class TileController : MonoBehaviour
 {
     public GameManager gameManager;
 
-    private const float BASE_SPEED = 100.0f;
+    private const float BASE_SPEED = 120.0f;
     private const float LOWEST_SPEED = 50.0f;
     
     private GameObject tile;
@@ -31,10 +31,12 @@ public class TileController : MonoBehaviour
         if (BASE_SPEED - cargoWeight < LOWEST_SPEED)
         {
             moveSpeed = LOWEST_SPEED * Time.deltaTime;
+            gameManager.playerSpeed = LOWEST_SPEED;
         }
         else
         {
             moveSpeed = (BASE_SPEED - cargoWeight) * Time.deltaTime;
+            gameManager.playerSpeed = BASE_SPEED - cargoWeight;
         }
         tile.transform.position = new Vector3(tile.transform.position.x, tile.transform.position.y, tile.transform.position.z - moveSpeed);
     }
