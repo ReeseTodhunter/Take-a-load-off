@@ -42,7 +42,6 @@ GameObject:
   - component: {fileID: 2756035988943350433}
   - component: {fileID: 1842648541010573782}
   - component: {fileID: 2204559069226836940}
-  - component: {fileID: 2918388117728852011}
   - component: {fileID: 2038087131688332803}
   - component: {fileID: 1713762664470631161}
   - component: {fileID: 1713762664470631162}
@@ -130,20 +129,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 290845584}
---- !u!114 &2918388117728852011
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1413622852014884835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c8adfd1d4e49584190f4a71cb7c0c18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetLimb: {fileID: 0}
-  mirror: 0
 --- !u!135 &2038087131688332803
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -185,7 +170,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.00000011920929, y: 1.0000004, z: 0}
+  m_ConnectedAnchor: {x: -0.00000011920926, y: 0.99999917, z: 0}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -281,7 +266,6 @@ GameObject:
   - component: {fileID: 1069647156732452085}
   - component: {fileID: 1860283745301022294}
   - component: {fileID: 1727092191194298652}
-  - component: {fileID: 3965957335644096888}
   - component: {fileID: 1586756629689032197}
   - component: {fileID: 1713762664787187329}
   - component: {fileID: 1713762664787187330}
@@ -369,20 +353,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 290845584}
---- !u!114 &3965957335644096888
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1508741833874493168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c8adfd1d4e49584190f4a71cb7c0c18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetLimb: {fileID: 0}
-  mirror: 0
 --- !u!136 &1586756629689032197
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -521,7 +491,6 @@ GameObject:
   - component: {fileID: 9126480888376220792}
   - component: {fileID: 6046386700914328242}
   - component: {fileID: 1905912685933829292}
-  - component: {fileID: 1486708098283850114}
   - component: {fileID: 1101763720411823666}
   - component: {fileID: 1713762663798528190}
   - component: {fileID: 1713762663798528191}
@@ -609,20 +578,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 290845584}
---- !u!114 &1486708098283850114
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1806250514680645515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c8adfd1d4e49584190f4a71cb7c0c18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetLimb: {fileID: 0}
-  mirror: 0
 --- !u!135 &1101763720411823666
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -812,6 +767,7 @@ MonoBehaviour:
   Pelvis: {fileID: 1713762665254439350}
   isGrounded: 0
   turnSmoothTime: 0.1
+  animator: {fileID: 0}
 --- !u!114 &3374743489535201718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1191,7 +1147,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.25, y: -0.2196981, z: 0}
+  m_ConnectedAnchor: {x: 0.25, y: -0.21969807, z: 0}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -1287,7 +1243,6 @@ GameObject:
   - component: {fileID: 3591348512058950094}
   - component: {fileID: 2893141753473852034}
   - component: {fileID: 9013643537483011751}
-  - component: {fileID: 6556283327505368323}
   - component: {fileID: 4075162386513113740}
   - component: {fileID: 1713762665444451166}
   - component: {fileID: 1713762665444451167}
@@ -1375,20 +1330,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 290845584}
---- !u!114 &6556283327505368323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2028297842533072384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c8adfd1d4e49584190f4a71cb7c0c18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetLimb: {fileID: 0}
-  mirror: 0
 --- !u!136 &4075162386513113740
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1431,7 +1372,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -1, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 1.776357e-14, y: 0.0000001192093, z: 0}
+  m_ConnectedAnchor: {x: -0.00000059604656, y: -0.00000011920923, z: 0}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -1557,7 +1498,6 @@ GameObject:
   - component: {fileID: 1263725839949500228}
   - component: {fileID: 3733035685790739015}
   - component: {fileID: 938096113121669570}
-  - component: {fileID: 5904901156352736288}
   - component: {fileID: 5240866045919077857}
   - component: {fileID: 1713762663518415255}
   - component: {fileID: 1713762663518415248}
@@ -1645,20 +1585,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 290845584}
---- !u!114 &5904901156352736288
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3052555109300143431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c8adfd1d4e49584190f4a71cb7c0c18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetLimb: {fileID: 0}
-  mirror: 0
 --- !u!136 &5240866045919077857
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1701,7 +1627,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -1, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 1.776357e-14, y: 0.0000001192093, z: 0}
+  m_ConnectedAnchor: {x: -0.00000059604656, y: -0.00000011920923, z: 0}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -2135,12 +2061,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f612efe31590146a7a8fd59da20169, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 200
-  strafespeed: 150
+  speed: 50
+  strafespeed: 50
   jumpForce: 6000
   Pelvis: {fileID: 1713762665254439350}
   isGrounded: 0
   turnSmoothTime: 0.1
+  animator: {fileID: 0}
 --- !u!1 &6263376123750931585
 GameObject:
   m_ObjectHideFlags: 0
@@ -2649,13 +2576,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7097044899034285924}
-  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -0.25, y: -1, z: 0}
   m_LocalScale: {x: 0.39999995, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 6209083792893532894}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!33 &3737731925235154146
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2774,7 +2701,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.25, y: -0.2196981, z: 0}
+  m_ConnectedAnchor: {x: -0.25, y: -0.21969807, z: 0}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -2870,7 +2797,6 @@ GameObject:
   - component: {fileID: 2291170997344171856}
   - component: {fileID: 6764175952088045411}
   - component: {fileID: 6257278040282212842}
-  - component: {fileID: 293525525041118956}
   - component: {fileID: 7115541174869120372}
   - component: {fileID: 1713762665303338094}
   - component: {fileID: 1713762665303338095}
@@ -2958,20 +2884,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 290845584}
---- !u!114 &293525525041118956
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7860283122505419555}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c8adfd1d4e49584190f4a71cb7c0c18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetLimb: {fileID: 0}
-  mirror: 0
 --- !u!135 &7115541174869120372
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3013,7 +2925,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.000000119209275, y: 1.0000001, z: 0}
+  m_ConnectedAnchor: {x: -0.000000119209275, y: 1.0000001, z: 0}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -3139,7 +3051,6 @@ GameObject:
   - component: {fileID: 3159700259809531740}
   - component: {fileID: 3036511750909880718}
   - component: {fileID: 7544648994076268650}
-  - component: {fileID: 3037243268503310460}
   - component: {fileID: 2295431010854431356}
   - component: {fileID: 1713762665226816951}
   - component: {fileID: 1713762665226816944}
@@ -3227,20 +3138,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 290845584}
---- !u!114 &3037243268503310460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8450897295333832713}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c8adfd1d4e49584190f4a71cb7c0c18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetLimb: {fileID: 0}
-  mirror: 0
 --- !u!136 &2295431010854431356
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3480,7 +3377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetLimb: {fileID: 0}
-  mirror: 0
+  mirror: 1
 --- !u!135 &1232674936435410738
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3719,7 +3616,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetLimb: {fileID: 0}
-  mirror: 0
+  mirror: 1
 --- !u!135 &4932650980619205540
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3857,7 +3754,6 @@ GameObject:
   - component: {fileID: 1577748230654692979}
   - component: {fileID: 3337314341434017090}
   - component: {fileID: 8504855167927542736}
-  - component: {fileID: 3318401773452175554}
   - component: {fileID: 1896686710921307863}
   - component: {fileID: 1713762663998437133}
   - component: {fileID: 1713762663998437134}
@@ -3945,20 +3841,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 290845584}
---- !u!114 &3318401773452175554
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8876546410827455616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c8adfd1d4e49584190f4a71cb7c0c18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetLimb: {fileID: 0}
-  mirror: 0
 --- !u!135 &1896686710921307863
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4000,7 +3882,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.00000011920929, y: 1.0000004, z: 0}
+  m_ConnectedAnchor: {x: -0.00000011920926, y: 0.99999917, z: 0}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0

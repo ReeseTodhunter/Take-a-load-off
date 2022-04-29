@@ -15,10 +15,12 @@ public class Player_Controller : MonoBehaviour
     public float turnSmoothTime = 2f;
     float turnSmoothVelocity;
 
+    public Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
@@ -33,28 +35,36 @@ public class Player_Controller : MonoBehaviour
         float vertical = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
-        if(direction.magnitude >=0.1f)
+        if (direction.magnitude >= 0.1f)
         {
+
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
             Pelvis.AddForce(Pelvis.transform.forward * speed);
+
+            animator.SetBool("isWalk", true);
+        }
+        else
+        {
+            animator.SetBool("isWalk", false);
         }
 
 
-        if(Input.GetAxis("Jump")>0)
+        if (Input.GetAxis("Jump") > 0)
         {
-            if (isGrounded && JumpTimer > 60)
+            if (isGrounded && JumpTimer > 30)
             {
                 Pelvis.AddForce(new Vector3(0, jumpForce, 0));
                 isGrounded = false;
                 JumpTimer = 0;
             }
         }
-        if(isGrounded && JumpTimer <= 60)
+        if (isGrounded && JumpTimer <= 30)
         {
             JumpTimer += 1;
         }
     }
+        
 }

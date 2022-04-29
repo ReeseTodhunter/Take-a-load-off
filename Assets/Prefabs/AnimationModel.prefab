@@ -123,14 +123,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 203159684645203552}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalRotation: {x: 0.46280038, y: 0.8864625, z: -0, w: 0}
   m_LocalPosition: {x: 0.5, y: 0.03330195, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4827627280577185874}
   m_Father: {fileID: 1627769593671768105}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 75}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 55.136}
 --- !u!33 &468874969239095335
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -813,7 +813,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3349942403460251772}
-  - component: {fileID: 5235459255642400374}
+  - component: {fileID: 4226257109272497831}
+  - component: {fileID: 4226257109272497832}
   m_Layer: 0
   m_Name: AnimationModel
   m_TagString: Untagged
@@ -840,7 +841,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!111 &5235459255642400374
+--- !u!111 &4226257109272497831
 Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -849,13 +850,33 @@ Animation:
   m_GameObject: {fileID: 5235459255642400375}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 3a57ce2dfb25c6c4d8d696b9ee102f9c, type: 2}
+  m_Animation: {fileID: 7400000, guid: 25319957117b27242918499931b84d54, type: 2}
   m_Animations:
+  - {fileID: 7400000, guid: 25319957117b27242918499931b84d54, type: 2}
   - {fileID: 7400000, guid: 3a57ce2dfb25c6c4d8d696b9ee102f9c, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!95 &4226257109272497832
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5235459255642400375}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 70f01f8d6adb33b4aae7dccb2d3f2d3d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5911714194006876133
 GameObject:
   m_ObjectHideFlags: 0
@@ -1272,6 +1293,7 @@ MonoBehaviour:
   Pelvis: {fileID: 0}
   isGrounded: 0
   turnSmoothTime: 0.1
+  animator: {fileID: 0}
 --- !u!23 &903353316815586136
 MeshRenderer:
   m_ObjectHideFlags: 0
