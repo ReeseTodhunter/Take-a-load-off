@@ -4,27 +4,56 @@ using UnityEngine;
 
 public class CargoSpawner : MonoBehaviour
 {
-    private const int WIDTH = 5, LENGTH = 8;
+    private const float WIDTH = 5.0f, LENGTH = 7.5f, HEIGHT = 7.0f;
+    private const float GAP_BETWEEN_CARGO = 1.25f;
 
-    public GameObject[] smallCrate;
-    public GameObject[] longCrate;
-    public GameObject[] largeCrate;
-
-    public int numOfSmall, numOfLong, numOfLarge;
+    public GameObject smallCrate;
+    [Space]
+    [Range(5, 200)]
+    public int numToSpawn;
+    [Range(1,100)]
+    public float weightToSpawn = 1.0f;
 
     void Start()
     {
-
+        SpawnCargo(numToSpawn);
     }
 
-    public void SpawnCargo(int amountSmall, int amountLong, int amountLarge)
+    public void SpawnCargo(int numToSpawn = 40)
     {
+        int numOfLayers;
+        if (numToSpawn > 0)
+        {
+            numOfLayers = 1 + (int)(numToSpawn / (WIDTH * LENGTH));
+        }
+        else
+        {
+            numOfLayers = 0;
+        }
 
+        for (int h = 0; h < numOfLayers; h++)
+        {
+            for (float i = 0; i < LENGTH; i++)
+            {
+                for (float j = 0; j < WIDTH; j++)
+                {
+                    if (numToSpawn < 1)
+                    {
+                        return;
+                    }
+
+                    GameObject cargo = Instantiate(smallCrate, new Vector3(this.transform.position.x + (j * GAP_BETWEEN_CARGO), this.transform.position.y + (h * GAP_BETWEEN_CARGO), this.transform.position.z + (i * GAP_BETWEEN_CARGO)), Quaternion.identity);
+                    cargo.AddComponent<Cargo>();
+                    cargo.GetComponent<Cargo>().weight = weightToSpawn;
+                    numToSpawn--;
+                }
+            }
+        }
     }
 
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireCube(this.transform.position, new Vector3(WIDTH, 3.0f, LENGTH));
+        Gizmos.DrawWireCube(new Vector3(this.transform.position.x + (WIDTH / 2), this.transform.position.y, this.transform.position.z + (LENGTH / 2)), new Vector3(WIDTH, 1.0f, LENGTH));
     }
 }
