@@ -31,7 +31,7 @@ public class TileSpawner : MonoBehaviour
             }
             else if(!hasSpawnedTile && gameManager.checkpoint != null && gameManager.tilesBetweenCheckpoints <= 0)
             {
-                gameManager.tilesBetweenCheckpoints = 10;
+                gameManager.tilesBetweenCheckpoints = 60;
                 cargoSpawner = other.gameObject.transform.parent.gameObject.transform.Find("CargoSpawner").gameObject.GetComponent<CargoSpawner>();
                 SpawnTile(new Vector3(this.transform.position.x, 0.0f, this.transform.position.z + spawnOffset), gameManager.checkpoint);
             }
