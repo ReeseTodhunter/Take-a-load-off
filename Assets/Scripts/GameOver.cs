@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MenuScript : MonoBehaviour
+public class GameOver : MonoBehaviour
 {
     public GameManager gameManager;
 
@@ -12,13 +12,17 @@ public class MenuScript : MonoBehaviour
         gameManager = FindObjectOfType(typeof(GameManager)) as GameManager;
     }
 
-    public void Playgame()
+    public void Retry()
     {
-        gameManager.LoadGame();
+        if (gameManager != null)
+        {
+            gameManager.LoadGame();
+        }
     }
 
-    public void Quit()
+    public void MainMenu()
     {
-        gameManager.Quit();
+        SceneManager.LoadScene("MainMenu");
+        gameManager.gameState = GameState.MainMenu;
     }
 }

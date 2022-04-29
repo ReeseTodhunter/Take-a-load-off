@@ -26,6 +26,9 @@ public class GameManager : MonoBehaviour
     public int score;
     public int highScore;
 
+    private GameObject currentPlayer;
+    private bool gameOver;
+
     void Awake()
     {
         if (GM == null) //If there is no Game manager create one and make it persistent over all scenes
@@ -49,6 +52,7 @@ public class GameManager : MonoBehaviour
         numOfCargo = 0;
         score = 0;
         highScore = 0;
+        gameOver = false;
     }
 
     void Update()
@@ -57,6 +61,7 @@ public class GameManager : MonoBehaviour
         {
             case GameState.Playing:
                 UpdateScore();
+                gameOver = false;
                 break;
             case GameState.GameOver:
                 GameOver();
@@ -64,7 +69,11 @@ public class GameManager : MonoBehaviour
         }
         if (gameState == GameState.GameOver)
         {
-            GameOver();
+            if (!gameOver)
+            {
+                GameOver();
+                gameOver = true;
+            }        
         }
     }
 
@@ -81,6 +90,7 @@ public class GameManager : MonoBehaviour
     public void ReturnToMenu()
     {
         SceneManager.LoadScene("MainMenu");
+        gameState = GameState.MainMenu;
     }
 
     public void Quit()
@@ -104,9 +114,9 @@ public class GameManager : MonoBehaviour
         newTruck.transform.Find("CargoSpawner").gameObject.GetComponent<CargoSpawner>().gameManager = GM;
         newTruck.transform.Find("CargoDetector").gameObject.GetComponent<CargoDetector>().gameManager = GM;
 
-        GameObject newPlayer = Instantiate(player, playerPos, Quaternion.identity);
-        newPlayer.transform.Find("AnimationModel").gameObject.transform.position = new Vector3(0.0f, -100.0f, 0.0f);
-        newPlayer.transform.Find("Character").gameObject.transform.position = new Vector3(playerPos.x, playerPos.y + 5.0f, playerPos.z - 10.0f);
+        currentPlayer = Instantiate(player, playerPos, Quaternion.identity);
+        currentPlayer.transform.Find("AnimationModel").gameObject.transform.position = new Vector3(0.0f, -100.0f, 0.0f);
+        currentPlayer.transform.Find("Character").gameObject.transform.position = new Vector3(playerPos.x, playerPos.y + 5.0f, playerPos.z - 10.0f);
 
         GameObject newEnemy = Instantiate(enemy, new Vector3(-playerPos.x, playerPos.y, playerPos.z - 150.0f), Quaternion.Euler(0.0f, 90.0f, 0.0f));
         newEnemy.GetComponent<Enemy>().gameManager = GM;
@@ -119,7 +129,10 @@ public class GameManager : MonoBehaviour
 
     private void GameOver()
     {
-
+        ReturnToMenu();
+        //Destroy(currentPlayer);
+        //GameObject over = Instantiate(gameOverScreen, new Vector3(0, 0, 0), Quaternion.identity);
+        //over.GetComponent<GameOver>().gameMaster = GM;
     }
 
     IEnumerator waitForSceneLoad(string sceneName)
