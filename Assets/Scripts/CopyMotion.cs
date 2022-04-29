@@ -11,7 +11,6 @@ public class CopyMotion : MonoBehaviour
     void Start()
     {
         cj = GetComponent<ConfigurableJoint>();
-        
     }
 
     // Update is called once per frame
