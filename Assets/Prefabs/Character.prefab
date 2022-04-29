@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1a4adf3db185bf4e9b84f895829d851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 2107618969470362401}
+  playerController: {fileID: 290845584}
 --- !u!135 &2038087131688332803
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -355,7 +355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1a4adf3db185bf4e9b84f895829d851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 2107618969470362401}
+  playerController: {fileID: 290845584}
 --- !u!136 &1586756629689032197
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -580,7 +580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1a4adf3db185bf4e9b84f895829d851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 2107618969470362401}
+  playerController: {fileID: 290845584}
 --- !u!135 &1101763720411823666
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -758,16 +758,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1853689473225083989}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58f612efe31590146a7a8fd59da20169, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  strafespeed: 0
-  jumpForce: 0
+  speed: 200
+  strafespeed: 150
+  jumpForce: 6000
   Pelvis: {fileID: 1713762665254439350}
   isGrounded: 0
+  turnSmoothTime: 0.1
 --- !u!23 &8421486112949623290
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -822,7 +823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1a4adf3db185bf4e9b84f895829d851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 2107618969470362401}
+  playerController: {fileID: 290845584}
 --- !u!135 &7027085336562468103
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -859,7 +860,7 @@ ConfigurableJoint:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1853689473225083989}
-  m_ConnectedBody: {fileID: 0}
+  m_ConnectedBody: {fileID: 290845586}
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
@@ -867,9 +868,9 @@ ConfigurableJoint:
   m_ConnectedAnchor: {x: 0, y: -0.7803019, z: 0}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
-  m_XMotion: 2
-  m_YMotion: 2
-  m_ZMotion: 2
+  m_XMotion: 0
+  m_YMotion: 0
+  m_ZMotion: 0
   m_AngularXMotion: 2
   m_AngularYMotion: 2
   m_AngularZMotion: 2
@@ -1079,7 +1080,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1a4adf3db185bf4e9b84f895829d851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 2107618969470362401}
+  playerController: {fileID: 290845584}
 --- !u!135 &1252886493224596383
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1303,7 +1304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1a4adf3db185bf4e9b84f895829d851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 2107618969470362401}
+  playerController: {fileID: 290845584}
 --- !u!136 &4075162386513113740
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1561,7 +1562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1a4adf3db185bf4e9b84f895829d851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 2107618969470362401}
+  playerController: {fileID: 290845584}
 --- !u!136 &5240866045919077857
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1786,7 +1787,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1a4adf3db185bf4e9b84f895829d851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 2107618969470362401}
+  playerController: {fileID: 290845584}
 --- !u!135 &835134216188303719
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1954,6 +1955,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6209083792893532894}
+  - component: {fileID: 290845586}
+  - component: {fileID: 290845584}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -1981,6 +1984,40 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &290845586
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3530378430502747349}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!114 &290845584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3530378430502747349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58f612efe31590146a7a8fd59da20169, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 200
+  strafespeed: 150
+  jumpForce: 6000
+  Pelvis: {fileID: 1713762665254439350}
+  isGrounded: 0
+  turnSmoothTime: 0.1
 --- !u!1 &6263376123750931585
 GameObject:
   m_ObjectHideFlags: 0
@@ -2079,7 +2116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1a4adf3db185bf4e9b84f895829d851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 2107618969470362401}
+  playerController: {fileID: 290845584}
 --- !u!135 &3835012663239826661
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2303,7 +2340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1a4adf3db185bf4e9b84f895829d851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 2107618969470362401}
+  playerController: {fileID: 290845584}
 --- !u!135 &8832554535572790972
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2527,7 +2564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1a4adf3db185bf4e9b84f895829d851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 2107618969470362401}
+  playerController: {fileID: 290845584}
 --- !u!135 &4581775667169470966
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2751,7 +2788,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1a4adf3db185bf4e9b84f895829d851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 2107618969470362401}
+  playerController: {fileID: 290845584}
 --- !u!135 &7115541174869120372
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3008,7 +3045,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1a4adf3db185bf4e9b84f895829d851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 2107618969470362401}
+  playerController: {fileID: 290845584}
 --- !u!136 &2295431010854431356
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3233,7 +3270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1a4adf3db185bf4e9b84f895829d851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 2107618969470362401}
+  playerController: {fileID: 290845584}
 --- !u!135 &1232674936435410738
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3457,7 +3494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1a4adf3db185bf4e9b84f895829d851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 2107618969470362401}
+  playerController: {fileID: 290845584}
 --- !u!135 &4932650980619205540
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3681,7 +3718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1a4adf3db185bf4e9b84f895829d851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 2107618969470362401}
+  playerController: {fileID: 290845584}
 --- !u!135 &1896686710921307863
 SphereCollider:
   m_ObjectHideFlags: 0

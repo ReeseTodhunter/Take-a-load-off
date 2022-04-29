@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Player_Controller : MonoBehaviour
 {
-    public float speed;
-    public float strafespeed;
-    public float jumpForce;
+    public float speed = 200;
+    public float strafespeed = 150;
+    public float jumpForce = 6000;
 
     public Rigidbody Pelvis;
     public bool isGrounded;
