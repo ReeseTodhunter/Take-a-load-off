@@ -20,7 +20,7 @@ public class Player_Controller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+        animator = GameObject.Find("AnimationModel").GetComponent(typeof(Animator)) as Animator;
     }
 
     // Update is called once per frame

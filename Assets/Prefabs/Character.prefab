@@ -2078,7 +2078,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f612efe31590146a7a8fd59da20169, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
+  speed: 200
   strafespeed: 50
   jumpForce: 6000
   Pelvis: {fileID: 1713762665254439350}
