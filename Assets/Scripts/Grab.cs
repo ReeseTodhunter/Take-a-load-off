@@ -99,8 +99,18 @@ public class Grab : MonoBehaviour
 
         grabbedObj = null;
         alreadyGrabbing = false;
+        Destroy(other.GetComponent<FixedJoint>());
         Destroy(grabbedObj.GetComponent<FixedJoint>());
 
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.GetComponent<Cargo>() as Cargo != null)
+        {
+            Destroy(other.GetComponent<FixedJoint>());
+
+        }
     }
 }
 

@@ -65,6 +65,14 @@ public class Player_Controller : MonoBehaviour
         {
             JumpTimer += 1;
         }
+        if(Input.GetKeyDown(KeyCode.L))
+        {
+            animator.SetBool("isSpin", true);
+        }
+        if(Input.GetKeyUp(KeyCode.L))
+        {
+            animator.SetBool("isSpin", false);
+        }
     }
         
 }
